@@ -1,6 +1,20 @@
 namespace SpriteKind {
     export const Door = SpriteKind.create()
 }
+function chooseLevel () {
+    let list: Image[] = []
+    let Level = 0
+    if (Level == 0) {
+        scene.setTileMap(list[Level])
+        createLevel()
+    } else if (Level == 1) {
+        scene.setTileMap(list[Level])
+    } else if (Level == 2) {
+        scene.setTileMap(list[Level])
+    } else {
+        scene.setTileMap(list[Level])
+    }
+}
 function createLevel () {
     for (let value of scene.getTilesByType(8)) {
         scene.setTile(8, img`
@@ -123,4 +137,3 @@ tiles.setTilemap(tiles.createTilemap(hex`1a000e000000000000000000000000000000000
     ...22.22....2.......2.....
     22222222222222222222222222
     `, [myTiles.transparency16,sprites.builtin.forestTiles0,myTiles.tile3,sprites.dungeon.hazardLava0,myTiles.tile1,myTiles.tile2,myTiles.tile5], TileScale.Sixteen))
-createLevel()
