@@ -165,12 +165,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Door, function (sprite, otherSpr
         } else {
             info.changeScoreBy(1)
             mySprite.setPosition(30, 80)
-            createLevel()
+            chooseLevel()
         }
     }
 })
 function deleteOldLevel () {
-    for (let value4 of sprites.allOfKind(SpriteKind.Player)) {
+    for (let value4 of sprites.allOfKind(SpriteKind.Door)) {
         value4.destroy()
     }
 }
