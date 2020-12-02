@@ -177,6 +177,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     mySprite.vy = -50
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava0, function (sprite, location) {
+    mySprite.say("Owwww!!!!!", 1000)
+    mySprite.say("HOT HOT HOT", 1000)
+    game.splash("YOU DIED")
     game.over(false)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Door, function (sprite, otherSprite) {
