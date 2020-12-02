@@ -160,7 +160,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Door, function (sprite, otherSprite) {
     if (sprites.allOfKind(SpriteKind.Food).length == 0) {
-        if (Level == 2) {
+        if (Level == 4) {
             game.over(true)
         } else {
             info.changeScoreBy(1)
