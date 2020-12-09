@@ -5,12 +5,10 @@ function chooseLevel () {
     if (Level == 0) {
         scene.setTileMap(list[Level])
         createLevel()
-        Level += 1
     } else if (Level == 1) {
         deleteOldLevel()
         scene.setTileMap(list[Level])
         createLevel()
-        Level += 1
     } else {
         deleteOldLevel()
         scene.setTileMap(list[Level])
@@ -160,10 +158,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Door, function (sprite, otherSprite) {
     if (sprites.allOfKind(SpriteKind.Food).length == 0) {
-        if (Level == 3) {
+        if (Level == 2) {
             game.over(true)
         } else {
-            info.changeScoreBy(1)
+            Level += 1
             mySprite.setPosition(30, 80)
             chooseLevel()
         }
