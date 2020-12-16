@@ -1,5 +1,6 @@
 namespace SpriteKind {
     export const Door = SpriteKind.create()
+    export const OP = SpriteKind.create()
 }
 function chooseLevel () {
     if (Level == 0) {
@@ -36,125 +37,184 @@ function createLevel () {
             . . . . . . . . . . . . . . . . 
             `, false)
         mySprite2 = sprites.create(img`
-            . . b b b b . . 
-            . b 8 8 8 8 b . 
-            b 8 d 3 3 d 5 b 
-            b 8 3 5 5 1 5 b 
-            c 8 3 5 5 1 d c 
-            c d d 1 1 d d c 
-            . f d d d d f . 
-            . . f f f f . . 
+            . . 5 5 5 5 . . 
+            . 5 2 2 2 2 5 . 
+            5 2 d 4 4 d 5 5 
+            5 2 4 2 2 5 5 5 
+            4 2 4 2 2 5 2 4 
+            4 2 2 5 5 2 2 4 
+            . 4 2 2 2 2 4 . 
+            . . 4 4 4 4 . . 
             `, SpriteKind.Door)
         scene.place(value, mySprite2)
     }
+    for (let value of scene.getTilesByType(15)) {
+        scene.setTile(15, img`
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            `, false)
+        LUNCH = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . 4 4 4 4 . . . . . . 
+            . . . . 4 4 4 5 5 4 4 4 . . . . 
+            . . . 3 3 3 3 4 4 4 4 4 4 . . . 
+            . . 4 3 3 3 3 2 2 2 1 1 4 4 . . 
+            . . 3 3 3 3 3 2 2 2 1 1 5 4 . . 
+            . 4 3 3 3 3 2 2 2 2 2 5 5 4 4 . 
+            . 4 3 3 3 2 2 2 4 4 4 4 5 4 4 . 
+            . 4 4 3 3 2 2 4 4 4 4 4 4 4 4 . 
+            . 4 2 3 3 2 2 4 4 4 4 4 4 4 4 . 
+            . . 4 2 3 3 2 4 4 4 4 4 2 4 . . 
+            . . 4 2 2 3 2 2 4 4 4 2 4 4 . . 
+            . . . 4 2 2 2 2 2 2 2 2 4 . . . 
+            . . . . 4 4 2 2 2 2 4 4 . . . . 
+            . . . . . . 4 4 4 4 . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Food)
+        scene.place(value, LUNCH)
+    }
+    for (let value of scene.getTilesByType(3)) {
+        scene.setTile(3, img`
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            `, false)
+        Chest = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.OP)
+        scene.place(value, Chest)
+    }
+    for (let value5 of scene.getTilesByType(1)) {
+        scene.setTile(1, img`
+            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+            5 2 2 2 2 2 2 5 5 4 4 4 4 4 4 5 
+            5 2 2 2 2 2 2 5 5 4 4 4 4 4 4 5 
+            5 2 2 2 2 2 2 5 5 4 4 4 4 4 4 5 
+            5 2 2 2 2 2 2 5 5 4 4 4 4 4 4 5 
+            5 2 2 2 2 2 2 5 5 4 4 4 4 4 4 5 
+            5 2 2 2 2 2 2 2 5 4 4 4 4 4 4 5 
+            5 5 5 5 5 5 2 5 5 5 5 5 5 5 4 5 
+            5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 5 
+            5 4 4 4 4 4 4 5 4 2 2 2 2 2 2 5 
+            5 4 4 4 4 4 4 5 4 2 2 2 2 2 2 5 
+            5 4 4 4 4 4 4 5 4 2 2 2 2 2 2 5 
+            5 4 4 4 4 4 4 5 4 2 2 2 2 2 2 5 
+            5 4 4 4 4 4 4 5 4 2 2 2 2 2 2 5 
+            5 4 4 4 4 4 4 4 4 2 2 2 2 2 2 5 
+            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+            `, false)
+    }
     for (let value2 of scene.getTilesByType(2)) {
         scene.setTile(2, img`
-            7 7 7 7 5 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 5 7 5 5 7 7 7 7 7 7 7 7 7 7 
-            7 6 5 5 7 5 7 5 5 7 7 7 7 7 7 7 
-            7 7 6 5 7 7 5 5 6 7 7 7 7 7 7 7 
-            7 7 7 6 7 7 5 6 7 7 7 7 7 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 5 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 5 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 6 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 7 5 7 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 7 5 7 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 7 6 7 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 7 5 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+            5 2 2 2 2 2 2 5 5 4 4 4 4 4 4 5 
+            5 2 2 2 2 2 2 5 5 4 4 4 4 4 4 5 
+            5 2 2 2 2 2 2 5 5 4 4 4 4 4 4 5 
+            5 2 2 2 2 2 2 5 5 4 4 4 4 4 4 5 
+            5 2 2 2 2 2 2 5 5 4 4 4 4 4 4 5 
+            5 2 2 2 2 2 2 2 5 4 4 4 4 4 4 5 
+            5 5 5 5 5 5 2 5 5 5 5 5 5 5 4 5 
+            5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 5 
+            5 4 4 4 4 4 4 5 4 2 2 2 2 2 2 5 
+            5 4 4 4 4 4 4 5 4 2 2 2 2 2 2 5 
+            5 4 4 4 4 4 4 5 4 2 2 2 2 2 2 5 
+            5 4 4 4 4 4 4 5 4 2 2 2 2 2 2 5 
+            5 4 4 4 4 4 4 5 4 2 2 2 2 2 2 5 
+            5 4 4 4 4 4 4 4 4 2 2 2 2 2 2 5 
+            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
             `, true)
     }
     for (let value3 of scene.getTilesByType(5)) {
         scene.setTile(5, img`
-            d 1 d d d d d d d 1 d d d d d d 
-            d 1 d d d d d d d 1 d d d d d d 
-            d 1 d d d d d d d 1 d d d d d d 
-            1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-            d d d d d 1 d d d d d d d 1 d d 
-            d d d d d 1 d d d d d d d 1 d d 
-            d d d d d 1 d d d d d d d 1 d d 
-            1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-            d 1 d d d d d d d 1 d d d d d d 
-            d 1 d d d d d d d 1 d d d d d d 
-            d 1 d d d d d d d 1 d d d d d d 
-            1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-            d d d d d 1 d d d d d d d 1 d d 
-            d d d d d 1 d d d d d d d 1 d d 
-            d d d d d 1 d d d d d d d 1 d d 
-            1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+            2 4 2 2 2 2 2 2 2 4 2 2 2 2 2 2 
+            2 4 2 2 2 2 2 2 2 4 2 2 2 2 2 2 
+            2 4 2 2 2 2 2 2 2 4 2 2 2 2 2 2 
+            4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+            2 2 2 2 2 4 2 2 2 2 2 2 2 4 2 2 
+            2 2 2 2 2 4 2 2 2 2 2 2 2 4 2 2 
+            2 2 2 2 2 4 2 2 2 2 2 2 2 4 2 2 
+            4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+            2 4 2 2 2 2 2 2 2 4 2 2 2 2 2 2 
+            2 4 2 2 2 2 2 2 2 4 2 2 2 2 2 2 
+            2 4 2 2 2 2 2 2 2 4 2 2 2 2 2 2 
+            4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+            2 2 2 2 2 4 2 2 2 2 2 2 2 4 2 2 
+            2 2 2 2 2 4 2 2 2 2 2 2 2 4 2 2 
+            2 2 2 2 2 4 2 2 2 2 2 2 2 4 2 2 
+            4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
             `, true)
     }
     for (let value4 of scene.getTilesByType(7)) {
         scene.setTile(7, img`
-            d 1 d d d d d d d 1 d d d d d d 
-            d 1 d d d d d d d 1 d d d d d d 
-            d 1 d d d d d d d 1 d d d d d d 
-            1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-            d d d d d 1 d d d d d d d 1 d d 
-            d d d d d 1 d d d d d d d 1 d d 
-            d d d d d 1 d d d d d d d 1 d d 
-            1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-            d 1 d d d d d d d 1 d d d d d d 
-            d 1 d d d d d d d 1 d d d d d d 
-            d 1 d d d d d d d 1 d d d d d d 
-            1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-            d d d d d 1 d d d d d d d 1 d d 
-            d d d d d 1 d d d d d d d 1 d d 
-            d d d d d 1 d d d d d d d 1 d d 
-            1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-            `, false)
-    }
-    for (let value of scene.getTilesByType(15)) {
-        scene.setTile(15, img`
-            . . . . f . . . . 
-            . . . f f f . . . 
-            . . f c f c f . . 
-            . f c a f a c f . 
-            f f f f f f f f f 
-            . f c a f a c f . 
-            . . f c f c f . . 
-            . . . f f f . . . 
-            . . . . f . . . . 
-            `, false)
-        LUNCH = sprites.create(img`
-            . . . . f . . . . 
-            . . . f f f . . . 
-            . . f c f c f . . 
-            . f c a f a c f . 
-            f f f f f f f f f 
-            . f c a f a c f . 
-            . . f c f c f . . 
-            . . . f f f . . . 
-            . . . . f . . . . 
-            `, SpriteKind.Food)
-        scene.place(value, LUNCH)
-    }
-    for (let value5 of scene.getTilesByType(1)) {
-        scene.setTile(1, img`
-            7 7 7 7 5 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 5 7 5 5 7 7 7 7 7 7 7 7 7 7 
-            7 6 5 5 7 5 7 5 5 7 7 7 7 7 7 7 
-            7 7 6 5 7 7 5 5 6 7 7 7 7 7 7 7 
-            7 7 7 6 7 7 5 6 7 7 7 7 7 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 5 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 5 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 6 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 7 5 7 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 7 5 7 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 7 6 7 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 7 5 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-            7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+            2 4 2 2 2 2 2 2 2 4 2 2 2 2 2 2 
+            2 4 2 2 2 2 2 2 2 4 2 2 2 2 2 2 
+            2 4 2 2 2 2 2 2 2 4 2 2 2 2 2 2 
+            4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+            2 2 2 2 2 4 2 2 2 2 2 2 2 4 2 2 
+            2 2 2 2 2 4 2 2 2 2 2 2 2 4 2 2 
+            2 2 2 2 2 4 2 2 2 2 2 2 2 4 2 2 
+            4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+            2 4 2 2 2 2 2 2 2 4 2 2 2 2 2 2 
+            2 4 2 2 2 2 2 2 2 4 2 2 2 2 2 2 
+            2 4 2 2 2 2 2 2 2 4 2 2 2 2 2 2 
+            4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+            2 2 2 2 2 4 2 2 2 2 2 2 2 4 2 2 
+            2 2 2 2 2 4 2 2 2 2 2 2 2 4 2 2 
+            2 2 2 2 2 4 2 2 2 2 2 2 2 4 2 2 
+            4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
             `, false)
     }
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.OP, function (sprite, otherSprite) {
+    Chest = sprites.create(img`
+        . b b b b b b b b b b b b b b . 
+        b e 4 4 4 4 4 4 4 4 4 4 4 4 4 b 
+        b e 4 4 4 4 4 4 4 4 4 4 4 4 e b 
+        b e e 4 4 4 4 4 4 4 4 4 4 e e b 
+        b b b b b b b d d b b b b b b b 
+        . b b b b b b c c b b b b b b . 
+        b c c c c c b c c b c c c c c b 
+        b c c c c c c b b c c c c c c b 
+        b c c c c c c c c c c c c c c b 
+        b c c c c c c c c c c c c c c b 
+        b b b b b b b b b b b b b b b b 
+        b e e e e e e e e e e e e e e b 
+        b e e e e e e e e e e e e e e b 
+        b c e e e e e e e e e e e e c b 
+        b b b b b b b b b b b b b b b b 
+        . b b . . . . . . . . . . b b . 
+        `, SpriteKind.OP)
+})
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    mySprite.vy = -200
+    if (mySprite.vy == 0) {
+        mySprite.vy = -200
+    }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Door, function (sprite, otherSprite) {
     if (sprites.allOfKind(SpriteKind.Food).length == 0) {
@@ -175,6 +235,7 @@ function deleteOldLevel () {
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     otherSprite.destroy()
 })
+let Chest: Sprite = null
 let LUNCH: Sprite = null
 let mySprite2: Sprite = null
 let Level = 0
@@ -234,10 +295,10 @@ list = [img`
     ....222222222222...2...2..
     22222222222222222222222222
     `, img`
-    ...............f.........8
+    8..............f..........
     ..........................
     .........5................
-    .....5...5................
+    .....5...5............f...
     .........5..555...........
     ....5...55.......5........
     .....5............55......
